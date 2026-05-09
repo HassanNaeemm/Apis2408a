@@ -20,7 +20,7 @@ var upload = multer({ storage: storage })
 
 
 var {MongoClient,ObjectId} = require('mongodb')
-var mongoserver = new MongoClient('mongodb://hamza2451999_db_user:JOSBZS7RI0FbWmZF@ac-gktqdpz-shard-00-00.0pbxr4w.mongodb.net:27017,ac-gktqdpz-shard-00-01.0pbxr4w.mongodb.net:27017,ac-gktqdpz-shard-00-02.0pbxr4w.mongodb.net:27017/?ssl=true&replicaSet=atlas-b8xwau-shard-0&authSource=admin&appName=HamzaCluster')
+var mongoserver = new MongoClient(process.env.MONGO_URI)
 mongoserver.connect()
 
 
@@ -30,7 +30,7 @@ server.use(express.json())
 //REST APIs
 
 //PUBLIC APIs
-var secretkey = "abc123"
+var secretkey = process.env.SECRET_KEY
 
 
 //File Uploading
